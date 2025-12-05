@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Aniversario ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #ff5e78;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff3357;
+    }
+
+    #mensaje {
+      margin-top: 25px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    /* Tablet */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.3rem;
+      }
+      p {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+      #mensaje {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Móvil */
+    @media (max-width: 480px) {
+      body {
+        height: auto;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+      .btn {
+        width: 100%;
+        max-width: 260px;
+      }
+      #mensaje {
+        font-size: 1.1rem;
+      }
+    }
+      .galeria {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .galeria h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    .fotos {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .fotos img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .carta {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: none;
+      font-size: 1rem;
+    }
+
+    .corazon {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: subir 4s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes subir {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Feliz segundo Aniversario, mi amor ❤️</h1>
+  <p>
+    Gracias por estos dos años contigo. Eres lo mejor que me ha pasado y quiero seguir creando recuerdos a tu lado.
+  </p>
+
+  <button class="btn" onclick="mostrarMensaje()">Haz clic aquí 💘</button>
+
+  <div id="mensaje"></div>
+
+  <script>
+    function mostrarMensaje() {
+      const mensajes = [
+        "Te amo muchísimo, cada día a tu lado es un recuerdo de lo afortunado que soy",
+        "Todas las cosas que pasamos juntos son los mejores recuerdos que puedo tener",
+        "Este es el segundo de muchos años juntos",
+        "Contigo voy al fin del mundo",
+        "Sé que no soy perfecto pero hago lo mejor que puedo para estar a tu nivel"
+      ];
+
+      const elegido = mensajes[Math.floor(Math.random() * mensajes.length)];
+      const msgDiv = document.getElementById("mensaje");
+      msgDiv.textContent = elegido;
+      msgDiv.style.opacity = 1;
+    }
+      function toggleCarta() {
+      const carta = document.getElementById("carta");
+      carta.style.display = carta.style.display === "block" ? "none" : "block";
+    }
+
+    function toggleMusica() {
+      const musica = document.getElementById("musica");
+      if (musica.paused) musica.play(); else musica.pause();
+    }
+
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.textContent = "❤️";
+      corazon.style.left = Math.random() * 100 + "%";
+      document.body.appendChild(corazon);
+
+      setTimeout(() => corazon.remove(), 4000);
+    }
+    setInterval(crearCorazon, 800);
+
+  </script>
+  <!-- Galería de fotos -->
+  <div class="galeria">
+    <h2>Nuestros Momentos 💞</h2>
+    <div class="fotos">
+      <img src="img/Imagen de WhatsApp 2025-12-05 a las 20.28.23_f342c561.jpg" alt="Foto 1" />
+      <img src="img/Imagen de WhatsApp 2025-12-05 a las 20.28.24_773fdfbd.jpg" alt="Foto 2" />
+      <img src="img/Imagen de WhatsApp 2025-12-05 a las 20.28.24_cde5553e.jpg" alt="Foto 3" />
+    </div>
+  </div>
+
+  <!-- Carta desplegable -->
+  <div class="carta-contenedor">
+    <button class="btn" onclick="toggleCarta()">Leer mi carta para ti ✨</button>
+    <div id="carta" class="carta">
+      <p>
+        Mi amor, gracias por ser la persona que ilumina mi vida. Cada día contigo es un regalo, y no puedo esperar 
+        a seguir construyendo lo nuestro. Cada dia me despierto pensandote, es una suete tenerte a mi lado, me toco la loteria al encontrarte 
+        Eres mi paz, mi risa y mi lugar seguro. Te amo.
+      </p>
+    </div>
+  </div>
+
+  <!-- Corazones animados -->
+  <div class="corazones" id="corazones"></div>
+
+</body>
+</html>
